@@ -1,3 +1,7 @@
+# Fork 自 React Redux
+
+在阅读源码的过程中增加了注释，读源码时是 7.x 版本，没想到 2 天后他们升级成 8 了，全部换成了 ts。所以 merge 后我的注释都留在了原来的 js 文件里，想阅读注释的直接去 js 文件就好了，就几个关键文件。
+
 # React Redux
 
 Official React bindings for [Redux](https://github.com/reduxjs/redux).  

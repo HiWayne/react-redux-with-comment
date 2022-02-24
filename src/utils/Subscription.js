@@ -41,7 +41,7 @@ function createListenerCollection() {
       return listeners
     },
 
-    // 向链表末尾添加节点，并返回一个删除该节点的undo
+    // 向链表末尾添加节点，并返回一个删除该节点的undo函数
     subscribe(callback) {
       let isSubscribed = true
 
@@ -69,7 +69,6 @@ function createListenerCollection() {
           listener.next.prev = listener.prev
         } else {
           // 没有则说明该节点是最后一个，将prev节点作为last节点
-          // Why: 为什么prev节点的next不需要置为null？
           last = listener.prev
         }
         // 如果有前节点prev

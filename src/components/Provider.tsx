@@ -30,6 +30,13 @@ function Provider<A extends Action = AnyAction>({
   children,
   serverState,
 }: ProviderProps<A>) {
+  /* 将{
+        store,
+        subscription,
+        getServerState
+       }
+      作为context provider的value透传下去
+  */
   const contextValue = useMemo(() => {
     const subscription = createSubscription(store)
     return {
@@ -39,13 +46,18 @@ function Provider<A extends Action = AnyAction>({
     }
   }, [store, serverState])
 
+  // 获取store的state作为上一次state
   const previousState = useMemo(() => store.getState(), [store])
 
+  // useIsomorphicLayoutEffect是一个facade，在server环境是useEffect，在浏览器环境是useLayoutEffect。
+  // 首次mount或者store发生变化时触发：
+  // subscription订阅
   useIsomorphicLayoutEffect(() => {
     const { subscription } = contextValue
     subscription.onStateChange = subscription.notifyNestedSubs
     subscription.trySubscribe()
 
+    // 如果store的state变了，则触发一次更新订阅
     if (previousState !== store.getState()) {
       subscription.notifyNestedSubs()
     }

@@ -65,14 +65,6 @@ export function getDependsOnOwnProps(mapToProps: MapToProps) {
 //  * On first call, verifies the first result is a plain object, in order to warn
 //    the developer that their mapToProps function is not returning a valid result.
 //
-<<<<<<< HEAD:src/connect/wrapMapToProps.js
-export function wrapMapToPropsFunc(mapToProps, methodName) {
-  return function initProxySelector(dispatch, { displayName }) {
-    // 将stateOrDispatch和ownProps注入mapToProps调用
-    // 如果返回的是函数，则将返回值作为mapToProps递归直到返回非函数为止
-    // 返回值即为select后的props
-    const proxy = function mapToPropsProxy(stateOrDispatch, ownProps) {
-=======
 export function wrapMapToPropsFunc<P = AnyProps>(
   mapToProps: MapToProps,
   methodName: string
@@ -85,7 +77,6 @@ export function wrapMapToPropsFunc<P = AnyProps>(
       stateOrDispatch: StateOrDispatch,
       ownProps?: P
     ): MapToProps {
->>>>>>> master:src/connect/wrapMapToProps.ts
       return proxy.dependsOnOwnProps
         ? proxy.mapToProps(stateOrDispatch, ownProps)
         : proxy.mapToProps(stateOrDispatch, undefined)

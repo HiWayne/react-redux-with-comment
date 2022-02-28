@@ -1,6 +1,6 @@
 # Fork 自 React Redux
 
-在阅读源码的过程中增加了注释，读源码时是 7.x 版本，没想到 2 天后他们升级成 8 了，全部换成了 ts。所以 merge 后我的注释都留在了原来的 js 文件里，想阅读注释的直接去 js 文件就好了，就几个关键文件。
+在阅读源码的过程中增加了注释，可配合[数万字长文！最新 react-redux8 源码超详细深入解析：再读 react-redux 源码](https://github.com/HiWayne/share-technology/blob/main/original/17.%E5%86%8D%E8%AF%BBreact-redux%E6%BA%90%E7%A0%81.md)观看
 
 # React Redux
 
